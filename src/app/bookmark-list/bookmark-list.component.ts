@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-
-import {Customer} from '../models/customer';
+import {Bookmark} from '../models/Bookmark';
 import {Observable} from 'rxjs';
 import {select, Store} from '@ngrx/store';
-import {CustomerRemove} from '../customer.actions';
+import {BookmarkRemove} from '../store/bookmark.actions';
+
 
 @Component({
   selector: 'app-bookmark-list',
@@ -11,17 +11,42 @@ import {CustomerRemove} from '../customer.actions';
   styleUrls: ['./bookmark-list.component.scss']
 })
 export class BookmarkListComponent implements OnInit {
-  links = ['kupa','dupa','analog'];
-  customers: Observable<Customer[]>;
-  constructor(private store: Store<{ customers: Customer[] }>) {
-    this.customers = store.pipe(select('customers'));
+  parentMessage = {
+    "chlam": [
+      {
+        "name": "Nazwa dupa",
+        "url": "http://kaszana",
+        "group": "priv"
+      },
+      {
+        "name": "Nazwa palo",
+        "url": "http://kielba",
+        "group": "priv2"
+      }
+    ],
+    "prak": [{
+      "name": "aluo",
+      "url": "http://prak",
+      "group": "priv"
+    }]
   }
 
-  removeCustomer(customerIndex) {
-    this.store.dispatch(new CustomerRemove(customerIndex));
+  bookmarks: Observable<{}>;
+
+  constructor(private store: Store<any>) {
+    this.bookmarks = store.pipe(select('bookmarks'));
+  }
+
+  // constructor(private store: Store<fromRoot.State>) {
+  //   this.bookmarks = store.pipe(select(getStates));
+  // }
+
+  removeBookmark(bookmarkIndex) {
+    this.store.dispatch(new BookmarkRemove(bookmarkIndex));
   }
 
   ngOnInit() {
+
   }
 
   showInfo(item) {

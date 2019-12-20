@@ -3,6 +3,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { MatDialogModule } from '@angular/material/dialog';
 
 
 import { NgModule } from '@angular/core';
@@ -14,6 +15,7 @@ const modules: any[] = [
   MatCardModule,
   MatListModule,
   MatIconModule,
+  MatDialogModule,
 ];
 
 // Declare Module that imports/exports the @angular/material modules needed in the app

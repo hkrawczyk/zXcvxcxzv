@@ -1,18 +1,26 @@
 <mat-card>
   <mat-list>
-    <mat-list-item *ngFor="let link of links">
-      <a matLine href="...">{{ link }}</a>
-      <button mat-icon-button (click)="showInfo(link)">
-        <mat-icon>more_vert</mat-icon>
-      </button>
-    </mat-list-item>
-    <mat-divider></mat-divider>
+      <div *ngFor="let bookmark of bookmarks | keyvalue">
+        {{bookmark.key}}
+        <app-bookmark-list-item *ngFor="let item of parentMessage[bookmark.key]"
+        [bookmark]="item"></app-bookmark-list-item>
+      </div>
+
+    <!--<mat-list-item *ngFor="let bookmark of bookmarks">-->
+      <!--<a matLine href="...">{{ bookmark }}</a>-->
+      <!--<button mat-icon-button (click)="showInfo(bookmark)">-->
+        <!--<mat-icon>more_vert</mat-icon>-->
+      <!--</button>-->
+    <!--</mat-list-item>-->
+    <!--<mat-divider></mat-divider>-->
   </mat-list>
-  <h4>List of Customers</h4>
-  <ul class="customers">
-    <li *ngFor="let customer of customers | async; let i=index">
-      <span >{{i+1}}.</span> {{customer.name}}
-      <button style="float: right" (click)="removeCustomer(i)">Remove</button>
-    </li>
-  </ul>
+
+  <!--<ul class="customers">-->
+    <!--<li *ngFor="let bookmark of bookmarks | async; let i=index">-->
+      <!--<span >{{i+1}}.</span> {{bookmark[0].name}}-->
+      <!--<button style="float: right" (click)="removeBookmark(i)">Remove</button>-->
+    <!--</li>-->
+  <!--</ul>-->
+
+
 </mat-card>

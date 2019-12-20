@@ -42,6 +42,7 @@ todo:
 - scss auto prekompilery dla safari itd
 - linki z @
 - linty
+- save form z obiektu formularza
 
 notatki:
 - info o ellipsisie

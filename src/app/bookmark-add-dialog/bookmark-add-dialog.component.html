@@ -1,0 +1,43 @@
+
+<h2 mat-dialog-title>Add new Bookmark</h2>
+
+
+<!--<mat-dialog-content [formGroup]="form">-->
+<mat-dialog-content >
+
+  <!--<mat-form-field>-->
+
+    <input #name
+           matInput
+           placeholder="Name of bookmark"
+           formControlName="name">
+  <input #url
+         matInput
+         placeholder="Name of bookmark"
+         formControlName="name">
+
+  <input #group
+         matInput
+         placeholder="Name of bookmark"
+         formControlName="name">
+  <!--</mat-form-field>-->
+
+
+
+</mat-dialog-content>
+
+<mat-dialog-actions>
+
+  <button class="mat-raised-button"
+          (click)="close()">
+    Close
+  </button>
+
+  <button class="mat-raised-button mat-primary"
+          (click)="AddBookmark(name.value, url.value, group.value)">
+    Save
+  </button>
+
+</mat-dialog-actions>
+
+

@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { StoreModule } from '@ngrx/store';
-import { CustomerReducer } from './customer.reducer';
+import { BookmarkReducer } from './store/bookmark.reducer';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -13,10 +13,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import { BookmarkListComponent } from './bookmark-list/bookmark-list.component';
 import { BookmarkAddComponent } from './bookmark-add/bookmark-add.component';
-import { CustomerAddComponent } from './customer-add/customer-add.component';
+import { BookmarkAddDialogComponent } from './bookmark-add-dialog/bookmark-add-dialog.component';
+
 
 
 import { MaterialDesignModule } from '../material-design/material-design.module';
+import { BookmarkListItemComponent } from './bookmark-list-item/bookmark-list-item.component';
 
 @NgModule({
   declarations: [
@@ -24,24 +26,19 @@ import { MaterialDesignModule } from '../material-design/material-design.module'
     ToolbarComponent,
     BookmarkListComponent,
     BookmarkAddComponent,
-    CustomerAddComponent
-
+    BookmarkAddDialogComponent,
+    BookmarkListItemComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialDesignModule,
-    StoreModule.forRoot({ customers: CustomerReducer })
-    // StoreModule.forRoot(reducers, {
-    //   metaReducers,
-    //   runtimeChecks: {
-    //     strictStateImmutability: true,
-    //     strictActionImmutability: true
-    //   }
-    // }),
+    StoreModule.forRoot({ bookmarks: BookmarkReducer })
+
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [BookmarkAddDialogComponent]
 })
 export class AppModule { }
