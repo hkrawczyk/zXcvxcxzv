@@ -12,18 +12,14 @@ import {BookmarkAdd} from '../store/bookmark.actions';
   styleUrls: ['./bookmark-add-dialog.component.scss']
 })
 export class BookmarkAddDialogComponent implements OnInit {
-  bookmarks: Observable<{}>;
+  bookmarks: Observable<Bookmark[]>;
 
   form: FormGroup;
   name: string;
 
-  constructor(
-    // private fb: FormBuilder,
-    private dialogRef: MatDialogRef<BookmarkAddDialogComponent>,
-    private store: Store<{ bookmarks: {} }>
-  ) {
-    this.bookmarks = store.pipe(select('bookmarks'));
 
+  constructor(private store: Store<{ customers: Bookmark[] }>) {
+    this.bookmarks = store.pipe(select('customers'));
   }
 
   // constructor(
@@ -47,6 +43,12 @@ export class BookmarkAddDialogComponent implements OnInit {
   // save() {
   //   this.dialogRef.close(this.form.value);
   // }
+  AddCustomer(customerName: string) {
+    const customer = new Bookmark();
+    customer.name = customerName;
+    this.store.dispatch(new BookmarkAdd(customer));
+  }
+
   AddBookmark(
     _name: string,
     _url: string,
@@ -58,11 +60,10 @@ export class BookmarkAddDialogComponent implements OnInit {
     bookmark.group = _group;
     this.store.dispatch(new BookmarkAdd(bookmark));
 
-    this.dialogRef.close();
   }
 
   close() {
-    this.dialogRef.close();
+    // this.dialogRef.close();
   }
 
 }

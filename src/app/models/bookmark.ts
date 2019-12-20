@@ -1,5 +1,5 @@
-export interface Bookmark {
-  name: string;
-  url: string;
-  group: string;
+export class Bookmark {
+  name: String = '';
+  url: String = '';
+  group: String = '';
 }

@@ -11,27 +11,30 @@ import {BookmarkRemove} from '../store/bookmark.actions';
   styleUrls: ['./bookmark-list.component.scss']
 })
 export class BookmarkListComponent implements OnInit {
-  parentMessage = {
-    "chlam": [
-      {
-        "name": "Nazwa dupa",
-        "url": "http://kaszana",
-        "group": "priv"
-      },
-      {
-        "name": "Nazwa palo",
-        "url": "http://kielba",
-        "group": "priv2"
-      }
-    ],
-    "prak": [{
-      "name": "aluo",
-      "url": "http://prak",
-      "group": "priv"
-    }]
-  }
+  // parentMessage = {
+  //   "chlam": [
+  //     {
+  //       "name": "Nazwa dupa",
+  //       "url": "http://kaszana",
+  //       "group": "priv"
+  //     },
+  //     {
+  //       "name": "Nazwa palo",
+  //       "url": "http://kielba",
+  //       "group": "priv2"
+  //     }
+  //   ],
+  //   "prak": [{
+  //     "name": "aluo",
+  //     "url": "http://prak",
+  //     "group": "priv"
+  //   }]
+  // }
 
   bookmarks: Observable<{}>;
+
+
+  movies$: Observable<Bookmark[]> = this.store.select(state => state.bookmarks);
 
   constructor(private store: Store<any>) {
     this.bookmarks = store.pipe(select('bookmarks'));
@@ -46,7 +49,7 @@ export class BookmarkListComponent implements OnInit {
   }
 
   ngOnInit() {
-
+    console.log(this.movies$);
   }
 
   showInfo(item) {

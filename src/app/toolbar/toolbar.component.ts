@@ -9,6 +9,7 @@ export class ToolbarComponent implements OnInit {
   amount = 5;
 
   constructor() {
+
   }
 
   ngOnInit() {

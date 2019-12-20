@@ -1,10 +1,10 @@
 <mat-card>
   <mat-list>
-      <div *ngFor="let bookmark of bookmarks | keyvalue">
-        {{bookmark.key}}
-        <app-bookmark-list-item *ngFor="let item of parentMessage[bookmark.key]"
-        [bookmark]="item"></app-bookmark-list-item>
-      </div>
+      <!--<div *ngFor="let bookmark of bookmarks | async; let i=index">-->
+        <!--{{bookmark.key}}-->
+        <!--<app-bookmark-list-item *ngFor="let item of parentMessage[bookmark.key]"-->
+        <!--[bookmark]="item"></app-bookmark-list-item>-->
+      <!--</div>-->
 
     <!--<mat-list-item *ngFor="let bookmark of bookmarks">-->
       <!--<a matLine href="...">{{ bookmark }}</a>-->
@@ -13,14 +13,14 @@
       <!--</button>-->
     <!--</mat-list-item>-->
     <!--<mat-divider></mat-divider>-->
+
+
+    <li *ngFor="let customer of bookmarks | async; let i=index">
+      <span >{{i+1}}.</span> {{customer.name}}
+    </li>
   </mat-list>
 
-  <!--<ul class="customers">-->
-    <!--<li *ngFor="let bookmark of bookmarks | async; let i=index">-->
-      <!--<span >{{i+1}}.</span> {{bookmark[0].name}}-->
-      <!--<button style="float: right" (click)="removeBookmark(i)">Remove</button>-->
-    <!--</li>-->
-  <!--</ul>-->
+
 
 
 </mat-card>
