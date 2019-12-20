@@ -32,3 +32,16 @@ If volnerabilities are visible in npm audit please do:
 rm -r node_modules
 npx npm-force-resolutions
 npm install
+
+
+
+todo:
+- rozbić inne importy i moduły jak router
+- store do cache
+- tytuł stroyn z zmiennej
+- scss auto prekompilery dla safari itd
+- linki z @
+- linty
+
+notatki:
+- info o ellipsisie
